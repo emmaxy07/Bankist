@@ -128,7 +128,7 @@ const displayMovements = function (acc, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  const formattedMov = formatCur(acc.balance, acc.locale, acc.currency)
+ 
   labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
@@ -304,85 +304,6 @@ btnLoan.addEventListener('click', function (e) {
 })
 
 
-
-
-
-
-
-
-
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] }
-]
-
- dogs.forEach(dog => {
-    dog.recFood = Math.trunc(dog.weight ** 0.75 * 28);
-  })
-console.log(dogs);
-
-const dogSarah = dogs.find(dog => 
-  dog.owners.includes('Sarah'))
-  if (dogSarah.curFood > dogSarah.recFood) {
-    console.log(`Sarah's dog is eating too much`);
-  } else {
-    console.log('Sarah\'s dog is eating too little');
-}
-  
-
-const ownersEatTooMuch = dogs.filter(dog => dog.curFood > dog.recFood).flatMap(dog => dog.owners)
-
-console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`)
-
-const ownersEatTooSmall = dogs.filter(dog => dog.curFood < dog.recFood).flatMap(dog => dog.owners)
-console.log(`${ownersEatTooSmall.join(' and ')}'s dogs eat too much`)
-
-const y = dogs.some(dog => dog.curFood === dog.recFood)
-console.log(y)
-
-const x = dogs.some(dog => dog.curFood > 0.9 * dog.recFood && dog.curFood < 1.1 * dog.recFood)
-console.log(x)
-
-const dogsEatOkay = dogs.filter(dog => dog.curFood > 0.9 * dog.recFood && dog.curFood < 1.1 * dog.recFood).flatMap(dog => dog)
-console.log(dogsEatOkay)
-
-const sortedD = dogs.slice().sort((a, b) => a.recFood - b.recFood)
-console.log(sortedD)
-
-
-const bankDepositSum = accounts.map(acc => acc.movements).flat().filter(mov => mov > 0).reduce((acc, mov) => { return acc + mov},0);
-console.log(bankDepositSum)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const overallBalance = accounts.map(acc => acc.movements).flat().reduce((acc, mov)=>{
-//   return acc + mov
-// }, 0)
-
-// console.log(overallBalance);
-
-// account1.movements.sort((a, b) => {
-//   if (a > b) return 1;
-//   if (b > a) return -1;
-// })
-
-// console.log(account1.movements);
 
 setInterval(function () {
   const now = new Date();
